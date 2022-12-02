@@ -68,13 +68,14 @@ function validationImc(){
                  keyboardType="numeric"
                 />
 
+                <ResultImc messageResultImc = {messageImc} resultImc = {imc}/>
+
                 <TouchableOpacity
                  style={styles.estilos}   
                  onPress={() => validationImc()}
-                 title={textButton}
-                />
+                >{textButton}</TouchableOpacity>
             </View>
-            <ResultImc messageResultImc = {messageImc} resultImc = {imc}/>
+            
             
         </View>
     );
@@ -84,6 +85,8 @@ function validationImc(){
 const styles = StyleSheet.create({
     estilos:{
         backgroundColor: 'blue',
+        color: 'red',
+    
     }
 });
   
