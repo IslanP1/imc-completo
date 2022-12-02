@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { TextInput, View, Text, Button } from "react-native";
+import { TextInput, View, Text, Button, Touchable, StyleSheet } from "react-native";
+import { TouchableOpacity } from "react-native-gesture-handler";
 import ResultImc from "./ResultImc";
 
 export default function Form(){
@@ -67,7 +68,8 @@ function validationImc(){
                  keyboardType="numeric"
                 />
 
-                <Button
+                <TouchableOpacity
+                 style={styles.estilos}   
                  onPress={() => validationImc()}
                  title={textButton}
                 />
@@ -77,3 +79,11 @@ function validationImc(){
         </View>
     );
 }
+
+
+const styles = StyleSheet.create({
+    estilos:{
+        backgroundColor: 'blue',
+    }
+});
+  
