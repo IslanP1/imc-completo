@@ -10,18 +10,36 @@ const [messageImc, setMessageImc] = useState("preencha o peso e altura")
 const [imc, setImc] = useState(null)
 const [textButton, setTextButton] = useState("Calcular")
 
-function imcCalculator(){
-    return setImc(
-        (peso/(altura*altura)).toFixed(2)
-    );
-}
-
 function validationImc(){
+    const imc = (peso/(altura*altura)).toFixed(2);
+    setImc(imc);
+
     if(peso != null && altura != null){
-        imcCalculator()
-        setAltura(null)
-        setPeso(null)
-        setMessageImc("Seu imc é igual: ")
+        if (imc <= 18.5){
+            setMessageImc("Abaixo do peso!")
+            setAltura('')
+            setPeso('')
+        } else if(imc > 18.5 && imc <= 25){
+            setMessageImc("Peso normal!")
+            setAltura('')
+            setPeso('')
+        } else if(imc > 25 && imc <= 30){
+            setMessageImc("Sobrepeso")
+            setAltura('')
+            setPeso('')
+        } else if(imc > 30 && imc <= 35){
+            setMessageImc("Obesidade grau I")
+            setAltura('')
+            setPeso('')
+        } else if(imc > 35 && imc <= 40){
+            setMessageImc("Obesidade grau II")
+            setAltura('')
+            setPeso('')
+        } else {
+            setMessageImc("Obesidade grau III")
+            setAltura('')
+            setPeso('')
+        }
         setTextButton("Calcular novamente")
         return
     }
